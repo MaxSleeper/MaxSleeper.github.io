@@ -5,6 +5,8 @@
       <title>This is the title</title>
   </head>
 <body>
+
+<h2>HTML Forms</h2>
   
   <form action>"/action_page.php">
   <label for="fname">First name:</label><br>
