@@ -1,0 +1,90 @@
+body {
+    background-color: #bfc4c9;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* HEADER */
+#header {
+    background-color: #3a3a3a;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+#logo {
+    width: 70px;
+    display: block;
+    margin: auto;
+}
+
+h1 {
+    margin: 5px 0;
+}
+
+/* FORM AREA */
+#main {
+    padding: 20px;
+}
+
+table {
+    margin: auto;
+    background-color: #eeeeee;
+    border-collapse: collapse;
+    width: 750px;
+}
+
+th {
+    background-color: #666666;
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+}
+
+td {
+    padding: 8px;
+    vertical-align: top;
+}
+
+td:first-child {
+    text-align: right;
+    font-weight: bold;
+    width: 220px;
+}
+
+input, select, textarea {
+    padding: 4px;
+    font-size: 14px;
+}
+
+textarea {
+    resize: none;
+}
+
+/* BUTTONS */
+input[type="submit"],
+input[type="reset"],
+button {
+    background-color: #333333;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+button:hover {
+    background-color: #000000;
+}
+
+/* FOOTER */
+#footer {
+    background-color: #3a3a3a;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+}
