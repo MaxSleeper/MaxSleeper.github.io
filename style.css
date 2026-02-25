@@ -70,6 +70,10 @@ textarea {
     resize: none;
 }
 
+#body h2 {
+    text-align: center;
+}
+
 /* BUTTONS */
 input[type="submit"],
 input[type="reset"],
