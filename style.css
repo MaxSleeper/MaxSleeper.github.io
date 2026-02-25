@@ -1,1 +1,97 @@
+/*
 
+
+
+
+
+
+*/
+body {
+    background-color: lavender;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* HEADER */
+#header {
+    background-color: dimgray ;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+#logo {
+    width: 70px;
+    display: block;
+    margin: auto;
+}
+
+h1 {
+    margin: 5px 0;
+}
+
+/* FORM AREA */
+#main {
+    padding: 20px;
+}
+
+table {
+    margin: auto;
+    background-color: gainsboro;
+    border-collapse: collapse;
+    width: 750px;
+}
+
+th {
+    background-color: dimgray;
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+}
+
+td {
+    padding: 8px;
+    vertical-align: top;
+}
+
+td: {
+    text-align: right;
+    font-weight: bold;
+    width: 220px;
+}
+
+input, select, textarea {
+    padding: 4px;
+    font-size: 14px;
+}
+
+textarea {
+    resize: none;
+}
+
+/* BUTTONS */
+input[type="submit"],
+input[type="reset"],
+button {
+    background-color: dimgray;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    font-size: 14px;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+button:hover {
+    background-color: black;
+}
+
+/* FOOTER */
+#footer {
+    background-color: dimgray;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+}
