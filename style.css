@@ -15,7 +15,7 @@ body {
 
 /* HEADER */
 #header {
-    background-color: lightgray ;
+    background-color: whitesmoke ;
     color: white;
     text-align: center;
     padding: 15px;
@@ -89,7 +89,7 @@ button:hover {
 
 /* FOOTER */
 #footer {
-    background-color: lightgray;
+    background-color: whitesmoke;
     color: white;
     text-align: center;
     padding: 15px;
