@@ -1,0 +1,36 @@
+<!doctype html>
+<!-- 
+  Author: Maxwell Sleeper
+  File: index.html
+  Date created: 2/20/26
+  Date last edited: 2/23/26
+  Version: 1.0
+  Description: The purpose of this program is to provide a patient intake form
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sleeper's Snake Oils & Miracle Cures - Patient Registration</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        function showDate() {
+            const today = new Date();
+            document.getElementById("today").innerHTML = today.toDateString();
+        }
+    </script>
+</head>
+
+<body onload="showDate()">
+
+<!-- HEADER -->
+<div id="header">
+    <img src="ElixirLogo.jpg" 
+         alt="Medical Logo" 
+         id="logo">
+    <h1>Sleeper's Snake Oils & Miracle Cures</h1>
+    <p>Today is: <span id="today"></span></p>
+</div>
+
+<hr>
