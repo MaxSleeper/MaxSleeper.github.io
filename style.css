@@ -55,7 +55,7 @@ td {
     vertical-align: top;
 }
 
-td {
+td: {
     text-align: right;
     font-weight: bold;
     width: 220px;
