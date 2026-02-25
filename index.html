@@ -1,5 +1,4 @@
 <!doctype html>
-<html lang="en">
 <!-- 
   Program name: patient-form.html
   Author: Maxwell Sleeper
@@ -8,16 +7,263 @@
   Version: 1.0
   Description: The purpose of this program is to provide a patient intake form
 -->
-<html>
-  <head>
-          <meta charset="utf-8">
-          <title> Assignment 1 MIS3371 </title>
-            
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sleeper's Snake Oils & Miracle Cures - Patient Registration</title>
 
+    <link rel="stylesheet" href="style.css">
 
+    <script>
+        function showDate() {
+            const today = new Date();
+            document.getElementById("today").innerHTML = today.toDateString();
+        }
+    </script>
+</head>
+
+<body onload="showDate()">
+
+<!-- HEADER -->
+<div id="header">
+    <img src="Elixir.jpg" 
+         alt="Medical Logo" 
+         id="logo">
+    <h1>Sleeper's Snake Oils & Miracle Cures</h1>
+    <p>Today is: <span id="today"></span></p>
+</div>
+
+<hr>
+
+<!-- FORM -->
+<div id="main">
+<form action="thankyou.html">
+
+<table>
+
+<tr>
+   <th colspan="2">Patient Registration Form</th>
+</tr>
+
+<tr>
+    <td>Name:</td>
+    <td>
+        <input type="text" maxlength="30" placeholder="First Name"
+               pattern="[A-Za-z]+" required>
+        <input type="text" maxlength="1" placeholder="MI"
+               pattern="[A-Za-z]">
+        <input type="text" maxlength="30" placeholder="Last Name"
+               pattern="[A-Za-z]+" required>
+    </td>
+</tr>
+
+<tr>
+    <td>Date of Birth:</td>
+    <td>
+        <input type="text" placeholder="MM/DD/YYYY"
+               pattern="(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/[0-9]{4}"
+               required>
+    </td>
+</tr>
+
+<tr>
+    <td>Social Security:</td>
+    <td>
+        <input type="password" maxlength="11" placeholder="XXX-XX-XXXX"
+               pattern="[0-9]{3}-[0-9]{2}-[0-9]{4}" required>
+    </td>
+</tr>
+
+<tr>
+    <td>Address Line 1:</td>
+    <td>
+        <input type="text" maxlength="30"
+               pattern="[A-Za-z0-9 .#]+" required>
+    </td>
+</tr>
+
+<tr>
+    <td>Address Line 2:</td>
+    <td>
+        <input type="text" maxlength="30"
+               pattern="[A-Za-z0-9 .#]*">
+    </td>
+</tr>
+
+<tr>
+    <td>City / State / Zip:</td>
+    <td>
+        <input type="text" maxlength="30" placeholder="City"
+               pattern="[A-Za-z ]+" required>
+
+        <select required>
+          <option value=""></option>
+          <option>AL</option>
+          <option>AK</option>
+          <option>AZ</option>
+          <option>AR</option>
+          <option>CA</option>
+          <option>CO</option>
+          <option>CT</option>
+          <option>DE</option>
+          <option>DC</option>
+          <option>FL</option>
+          <option>GA</option>
+          <option>HI</option>
+          <option>ID</option>
+          <option>IL</option>
+          <option>IN</option>
+          <option>IA</option>
+          <option>KS</option>
+          <option>KY</option>
+          <option>LA</option>
+          <option>ME</option>
+          <option>MD</option>
+          <option>MA</option>
+          <option>MI</option>
+          <option>MN</option>
+          <option>MS</option>
+          <option>MO</option>
+          <option>MT</option>
+          <option>NE</option>
+          <option>NV</option>
+          <option>NH</option>
+          <option>NJ</option>
+          <option>NM</option>
+          <option>NY</option>
+          <option>NC</option>
+          <option>ND</option>
+          <option>OH</option>
+          <option>OK</option>
+          <option>OR</option>
+          <option>PA</option>
+          <option>RI</option>
+          <option>SC</option>
+          <option>SD</option>
+          <option>TN</option>
+          <option>TX</option>
+          <option>UT</option>
+          <option>VT</option>
+          <option>VA</option>
+          <option>WA</option>
+          <option>WV</option>
+          <option>WI</option>
+          <option>WY</option>
+          <option>PR</option>
+        </select>
+
+        <input type="text" maxlength="10" placeholder="Zip"
+               pattern="[0-9]{5}(-[0-9]{4})?" required>
+    </td>
+</tr>
   
-  </head>
+<tr>
+    <td>Email:</td>
+    <td>
+        <input type="email" placeholder="name@domain.tld" required>
+    </td>
+</tr>
 
+<tr>
+    <td>Describe Symptoms:</td>
+    <td>
+        <textarea rows="3" cols="50" required></textarea>
+    </td>
+</tr>
+
+<tr>
+    <td>Medical History:</td>
+    <td>
+        <input type="checkbox"> Chicken Pox<br>
+        <input type="checkbox"> Measles<br>
+        <input type="checkbox"> Covid-19<br>
+        <input type="checkbox"> Small Pox<br>
+        <input type="checkbox"> Tetanus
+    </td>
+</tr>
+
+<tr>
+    <td>Gender:</td>
+    <td>
+        <input type="radio" name="gender"> Male
+        <input type="radio" name="gender"> Female
+        <input type="radio" name="gender"> Other
+    </td>
+</tr>
+
+<tr>
+    <td>Vaccinated?</td>
+    <td>
+        <input type="radio" name="vax"> Yes
+        <input type="radio" name="vax"> No
+    </td>
+</tr>
+
+<tr>
+    <td>Insurance?</td>
+    <td>
+        <input type="radio" name="ins"> Yes
+        <input type="radio" name="ins"> No
+    </td>
+</tr>
+
+<tr>
+    <td>How are you feeling today? (1–10):</td>
+    <td>
+        <input type="range" min="1" max="10">
+    </td>
+</tr>
+
+<tr>
+    <td>User ID:</td>
+    <td>
+        <input type="text" maxlength="20"
+               pattern="[A-Za-z0-9_]+" required>
+    </td>
+</tr>
+
+<tr>
+    <td>Password:</td>
+    <td>
+        <input type="password"
+               maxlength="50" required>
+    </td>
+</tr>
+
+<tr>
+    <td>Confirm Password:</td>
+    <td>
+        <input type="password"
+               maxlength="50" required>
+    </td>
+</tr>
+
+<tr>
+    <td colspan="2" align="center">
+        <input type="reset" 
+               value="CLEAR AND START OVER">
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="submit" 
+               value="Submit">
+    </td>
+</tr>
+
+</table>
+</form>
+</div>
+
+<hr>
+
+<!-- FOOTER -->
+<div id="footer">
+   Sleeper's Snake Oils & Miracle Cures | Houston Tx
+    <br><br>
+    <button>CONTACT US</button>
+</div>
+
+</body>
+</html>
+<!-- END FILE -->
 
 
 
