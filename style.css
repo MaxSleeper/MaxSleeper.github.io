@@ -55,11 +55,7 @@ td {
     vertical-align: top;
 }
 
-td {
-    text-align: right;
-    font-weight: bold;
-    width: 220px;
-}
+
 
 input, select, textarea {
     padding: 4px;
