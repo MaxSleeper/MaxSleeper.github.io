@@ -1,0 +1,153 @@
+/*
+  Author: Maxwell Sleeper
+  File: style.css
+  Date created: 4/18/26
+  Date last edited: 4/18/26
+  Version: 3
+*/
+
+/* ── BASE ─────────────────────────────────────────── */
+body {
+    background-color: lavender;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* ── HEADER ───────────────────────────────────────── */
+#header {
+    background-color: cadetblue;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+#logo {
+    width: 70px;
+    display: block;
+    margin: auto;
+}
+
+h1 {
+    margin: 5px 0;
+}
+
+/* ── FORM AREA ────────────────────────────────────── */
+#main {
+    padding: 20px;
+}
+
+table {
+    margin: auto;
+    background-color: gainsboro;
+    border-collapse: collapse;
+    width: 820px;
+}
+
+th {
+    background-color: dimgray;
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+}
+
+td {
+    padding: 8px;
+    vertical-align: top;
+}
+
+/* Hint column — instructions/prompts */
+td.hint {
+    font-size: 12px;
+    color: #555;
+    font-style: italic;
+    width: 200px;
+    vertical-align: middle;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+select,
+textarea {
+    padding: 4px;
+    font-size: 14px;
+}
+
+textarea {
+    resize: none;
+}
+
+/* ── BUTTONS ──────────────────────────────────────── */
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button {
+    background-color: dimgray;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    margin: 4px;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
+button:hover {
+    background-color: black;
+}
+
+/* ── ERROR MESSAGES ───────────────────────────────── */
+.errmsg {
+    color: red;
+    font-size: 12px;
+    display: block;
+    margin-top: 2px;
+    min-height: 16px;  /* Prevents form from jumping when errors appear/disappear */
+}
+
+/* ── REVIEW TABLE ─────────────────────────────────── */
+#reviewSection {
+    padding: 10px 20px;
+}
+
+.reviewTable {
+    width: 90%;
+    margin: 15px auto;
+    border-collapse: collapse;
+    background-color: #f0f0f0;
+}
+
+.reviewTable th,
+.reviewTable td {
+    border: 1px solid #ccc;
+    padding: 6px 10px;
+    text-align: left;
+}
+
+.reviewTable th {
+    background-color: dimgray;
+    color: white;
+}
+
+.ok {
+    color: green;
+    font-weight: bold;
+}
+
+/* ── FOOTER ───────────────────────────────────────── */
+#footer {
+    background-color: cadetblue;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+  
+}
+#footer { position: relative; }
+#btn { position: absolute; }
+
+#footer { position: relative; min-height: 120px; }
+#btn { position: absolute; }
