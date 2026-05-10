@@ -1,6 +1,6 @@
 /* Author: Maxwell Sleeper
    File: assignment4.js
-   Version: FINAL (Assignment 4 Complete)
+   Version: 4.0
 */
 
 /* ── COOKIE UTILITIES ───────────────────────────── */
