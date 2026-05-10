@@ -11,8 +11,8 @@ body {
     background-color: lavender;
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
-    padding-top: 140px;
-    padding-bottom: 80px;
+    padding-top: 90px;
+    padding-bottom: 120px;
 }
 
 /* ── HEADER ───────────────────────────────────────── */
@@ -25,12 +25,12 @@ body {
     background-color: cadetblue;
     color: white;
     text-align: center;
-    padding: 15px;
+    padding: 8px;
     z-index: 1000;
 }
 
 #logo {
-    width: 70px;
+    width: 50px;
     display: block;
     margin: auto;
 }
@@ -172,7 +172,8 @@ button:hover {
     background-color: cadetblue;
     color: white;
     text-align: center;
-    padding: 10px;
+    padding: 20px;
+    font-size: 16px;
     z-index: 1000;
 }
 
