@@ -24,19 +24,21 @@ body {
     width: 100%;
     background-color: cadetblue;
     color: white;
-    text-align: center;
-    padding: 5px 8px;  
+    display: flex;              
+    align-items: center;         
+    justify-content: center;      
+    gap: 15px;                     
+    padding: 5px 10px;
     z-index: 1000;
 }
 
 #logo {
     width: 40px;      
-    display: block;
-    margin: auto;
+    margin: 0;
 }
 
 h1 {
-    margin: 2px 0;
+    margin: 0;
     font-size: 18px;
 }
 
