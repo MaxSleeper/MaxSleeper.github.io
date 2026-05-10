@@ -342,6 +342,17 @@
                     requestAnimationFrame(loop);
                 })();
             </script>
+
+            <script>
+                window.addEventListener("load", () => {
+                    const header = document.getElementById("header");
+                    const footer = document.getElementById("footer");
+                
+                    document.body.style.paddingTop = header.offsetHeight + "px";
+                    document.body.style.paddingBottom = footer.offsetHeight + "px";
+                });
+                </script>
+            
         </div>
 
         <script src="assignment4.js"></script>
