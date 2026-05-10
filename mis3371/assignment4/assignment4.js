@@ -149,8 +149,8 @@ function renderHeaderGreeting() {
 /* ── VALIDATION FUNCTIONS ───────────────────────── */
 
 function validateName() {
-    let f = fname.value;
-    let l = lname.value;
+    let f = document.getElementById("fname").value;
+    let l = document.getElementById("lname").value;
     let msg = "";
 
     if (!/^[A-Za-z'\-]{1,30}$/.test(f)) {
@@ -298,10 +298,9 @@ function validateForm() {
         if (e.innerHTML !== "") hasError = true;
     });
 
-    if (!hasError) {
-        submitBtn.style.display = "inline";
-        saveUserIdentity();
-        alert("Form valid!");
+   if (!hasError) {
+    saveUserIdentity();
+    return true;
     } else {
         alert("Fix errors.");
     }
