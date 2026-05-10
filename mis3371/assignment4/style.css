@@ -1,0 +1,181 @@
+/* Author: Maxwell Sleeper
+   File: style.css
+   Date created: 4/18/26
+   Date last edited: 5/9/26
+   Version: 4
+*/
+
+/* ── BASE ─────────────────────────────────────────── */
+
+body {
+    background-color: lavender;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding-top: 140px;
+    padding-bottom: 80px;
+}
+
+/* ── HEADER ───────────────────────────────────────── */
+
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: cadetblue;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    z-index: 1000;
+}
+
+#logo {
+    width: 70px;
+    display: block;
+    margin: auto;
+}
+
+h1 {
+    margin: 5px 0;
+}
+
+/* ── FORM AREA ────────────────────────────────────── */
+
+#main {
+    padding: 20px;
+}
+
+table {
+    margin: auto;
+    background-color: gainsboro;
+    border-collapse: collapse;
+    width: 820px;
+}
+
+th {
+    background-color: dimgray;
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+}
+
+td {
+    padding: 8px;
+    vertical-align: top;
+}
+
+/* Hint column */
+
+td.hint {
+    font-size: 12px;
+    color: #555;
+    font-style: italic;
+    width: 200px;
+    vertical-align: middle;
+}
+
+/* Inputs */
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+select,
+textarea {
+    padding: 4px;
+    font-size: 14px;
+}
+
+textarea {
+    resize: none;
+}
+
+/* ── BUTTONS ──────────────────────────────────────── */
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button {
+    background-color: dimgray;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    margin: 4px;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
+button:hover {
+    background-color: black;
+}
+
+/* ── ERROR MESSAGES ───────────────────────────────── */
+
+.errmsg {
+    color: red;
+    font-size: 12px;
+    display: block;
+    margin-top: 2px;
+    min-height: 16px;
+}
+
+/* ── REVIEW TABLE ─────────────────────────────────── */
+
+#reviewSection {
+    padding: 10px 20px;
+}
+
+.reviewTable {
+    width: 90%;
+    margin: 15px auto;
+    border-collapse: collapse;
+    background-color: #f0f0f0;
+}
+
+.reviewTable th,
+.reviewTable td {
+    border: 1px solid #ccc;
+    padding: 6px 10px;
+    text-align: left;
+}
+
+.reviewTable th {
+    background-color: dimgray;
+    color: white;
+}
+
+.ok {
+    color: green;
+    font-weight: bold;
+}
+
+/* ── IFRAME CONTAINER ─────────────────────────────── */
+
+#iframeContainer {
+    margin: 20px auto;
+    width: 90%;
+    text-align: center;
+    background: #f0f0f0;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* ── FOOTER ───────────────────────────────────────── */
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: cadetblue;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    z-index: 1000;
+}
+
+#btn {
+    position: absolute;
+}
