@@ -183,7 +183,7 @@ button:hover {
     padding: 15px 10px;
     font-size: 14px;
     z-index: 1000;
-    min-height: 100px;
+    height: 200px;
 }
 
 #btn {
