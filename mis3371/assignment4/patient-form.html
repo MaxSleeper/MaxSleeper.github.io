@@ -1,1 +1,353 @@
+<!doctype html>
 
+<!--
+    Author: Maxwell Sleeper
+    File: patient-form.html
+    Date Created: 4/18/26
+    Date Last Edited: 5/9/26
+    Version: 4
+    Description: Patient intake form with validation and review panel, and instant validation.
+-->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Sleeper's Snake Oils & Miracle Cures - Patient Registration</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+
+        <div id="header">
+            <img src="ElixirLogo(1).jpg" alt="Medical Logo" id="logo">
+            <h1>Sleeper's Snake Oils &amp; Miracle Cures</h1>
+            <p>Today is: <span id="today"></span></p>
+           
+           <tr>
+             <td colspan="3">
+              <label>
+               <input type="checkbox" id="rememberMe" checked onchange="handleRememberMe()">
+                 Remember Me
+             </label>
+            </td>
+           </tr>
+        </div>
+
+        <hr>
+
+        <div id="main">
+            <form id="regForm" action="thankyou.html" onreset="removeReview()" onsubmit="return false;">
+
+                <table>
+                    <tr>
+                        <th colspan="3">Patient Registration Form</th>
+                    </tr>
+
+                    <!-- NAME -->
+                    <tr>
+                        <td>Name:</td>
+                        <td>
+                            <input type="text" id="fname" placeholder="First Name" required
+                                minlength="1" maxlength="30"
+                                pattern="[A-Za-z'\-]+"
+                                title="1-30 letters, apostrophes or dashes only"
+                                oninput="validateName()" onblur="validateName()">
+
+                            <input type="text" id="mi" placeholder="MI" maxlength="1"
+                                pattern="[A-Za-z]"
+                                title="Optional, 1 letter only"
+                                oninput="validateMI()" onblur="validateMI()">
+
+                            <input type="text" id="lname" placeholder="Last Name" required
+                                minlength="1" maxlength="30"
+                                pattern="[A-Za-z'\-]+"
+                                title="1-30 letters, apostrophes or dashes only"
+                                oninput="validateName()" onblur="validateName()">
+
+                            <span class="errmsg" id="name_text"></span>
+                            <span class="errmsg" id="mi_text"></span>
+                        </td>
+                        <td class="hint">Enter first name, optional middle initial, and last name.</td>
+                    </tr>
+
+                    <!-- DOB -->
+                    <tr>
+                        <td>Date of Birth:</td>
+                        <td>
+                            <input type="date" id="dob" required
+                                title="Must not be in the future or more than 120 years ago"
+                                oninput="validateDOB()" onblur="validateDOB()">
+                            <span class="errmsg" id="dob_text"></span>
+                        </td>
+                        <td class="hint">Must be between today and 120 years ago.</td>
+                    </tr>
+
+                    <!-- SSN -->
+                    <tr>
+                        <td>Social Security:</td>
+                        <td>
+                            <input type="password" id="ssn" placeholder="XXX-XX-XXXX"
+                                maxlength="11"
+                                pattern="\d{3}-\d{2}-\d{4}"
+                                title="9 digits, formatted automatically as XXX-XX-XXXX"
+                                oninput="formatSSN(this); validateSSN()" onblur="validateSSN()">
+                            <span class="errmsg" id="ssn_text"></span>
+                        </td>
+                        <td class="hint">Enter 9 digits — dashes added automatically.</td>
+                    </tr>
+
+                    <!-- EMAIL -->
+                    <tr>
+                        <td>Email:</td>
+                        <td>
+                            <input type="text" id="email"
+                                pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
+                                title="Format: name@domain.com"
+                                oninput="this.value=this.value.toLowerCase(); validateEmail()" onblur="validateEmail()">
+                            <span class="errmsg" id="email_text"></span>
+                        </td>
+                        <td class="hint">Must be in format: name@domain.tld</td>
+                    </tr>
+
+                    <!-- PHONE -->
+                    <tr>
+                        <td>Phone:</td>
+                        <td>
+                            <input type="text" id="phone" placeholder="000-000-0000"
+                                pattern="\d{3}-\d{3}-\d{4}"
+                                title="Format: 000-000-0000"
+                                oninput="validatePhone()" onblur="validatePhone()">
+                            <span class="errmsg" id="phone_text"></span>
+                        </td>
+                        <td class="hint">Format: 000-000-0000</td>
+                    </tr>
+
+                    <!-- ADDRESS -->
+                    <tr>
+                        <td>Address:</td>
+                        <td>
+                            <input type="text" id="addr1" placeholder="Address Line 1" required
+                                minlength="2" maxlength="30"
+                                title="Required, 2-30 characters"
+                                oninput="validateAddress()" onblur="validateAddress()">
+
+                            <input type="text" id="addr2" placeholder="Address Line 2 (optional)"
+                                minlength="2" maxlength="30"
+                                title="Optional, 2-30 characters if entered"
+                                oninput="validateAddress2()" onblur="validateAddress2()">
+
+                            <span class="errmsg" id="addr1_text"></span>
+                            <span class="errmsg" id="addr2_text"></span>
+                        </td>
+                        <td class="hint">Line 2 is optional. If entered, must be 2-30 chars.</td>
+                    </tr>
+
+                    <!-- CITY / STATE / ZIP -->
+                    <tr>
+                        <td>City / State / Zip:</td>
+                        <td>
+                            <input type="text" id="city" placeholder="City"
+                                minlength="2" maxlength="30"
+                                pattern="[A-Za-z' \-]+"
+                                title="Letters, spaces, apostrophes or dashes only"
+                                oninput="validateCity()" onblur="validateCity()">
+
+                            <select id="state" oninput="validateState()" onblur="validateState()">
+                                <option value="">-- State --</option>
+                            </select>
+
+                            <input type="text" id="zip" placeholder="Zip"
+                                minlength="5" maxlength="5"
+                                pattern="\d{5}"
+                                title="5 digit zip code"
+                                oninput="validateZip()" onblur="validateZip()">
+
+                            <br>
+                            <span class="errmsg" id="city_text"></span>
+                            <span class="errmsg" id="state_text"></span>
+                            <span class="errmsg" id="zip_text"></span>
+                        </td>
+                        <td class="hint">Select your state and enter a 5-digit zip code.</td>
+                    </tr>
+
+                    <!-- MEDICAL HISTORY -->
+                    <tr>
+                        <td>Medical History:</td>
+                        <td colspan="2">
+                            Check all that apply:<br>
+                            <label><input type="checkbox" name="Mumps"> Mumps</label><br>
+                            <label><input type="checkbox" name="Measles"> Measles</label><br>
+                            <label><input type="checkbox" name="Rubella"> Rubella</label><br>
+                            <label><input type="checkbox" name="ChickenPox"> Chicken Pox</label><br>
+                            <label><input type="checkbox" name="Covid19"> Covid-19</label><br>
+                            <label><input type="checkbox" name="HeartDisease"> Heart Disease</label>
+                        </td>
+                    </tr>
+
+                    <!-- RADIO BUTTONS -->
+                    <tr>
+                        <td>Gender:</td>
+                        <td>
+                            <label><input type="radio" name="gender" value="Male" onclick="validateRadios()"> Male</label>
+                            <label><input type="radio" name="gender" value="Female" onclick="validateRadios()"> Female</label>
+                            <label><input type="radio" name="gender" value="Other" onclick="validateRadios()"> Other</label>
+                            <span class="errmsg" id="gender_text"></span>
+                        </td>
+                        <td class="hint">Required — select one.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Vaccinated?</td>
+                        <td>
+                            <label><input type="radio" name="vax" value="Yes" onclick="validateRadios()"> Yes</label>
+                            <label><input type="radio" name="vax" value="No" onclick="validateRadios()"> No</label>
+                            <label><input type="radio" name="vax" value="Unsure" onclick="validateRadios()"> Unsure</label>
+                            <span class="errmsg" id="vax_text"></span>
+                        </td>
+                        <td class="hint">Required — select one.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Ready to party?</td>
+                        <td>
+                            <label><input type="radio" name="ins" value="Yes" onclick="validateRadios()"> Yes</label>
+                            <label><input type="radio" name="ins" value="No" onclick="validateRadios()"> No</label>
+                            <span class="errmsg" id="ins_text"></span>
+                        </td>
+                        <td class="hint">Required — select one.</td>
+                    </tr>
+
+                    <!-- SLIDER -->
+                    <tr>
+                        <td>Monthly Budget:</td>
+                        <td>
+                            $0
+                            <input type="range" id="budget" min="0" max="2000" value="500"
+                                title="Drag to set your monthly budget"
+                                oninput="document.getElementById('budgetDisplay').innerHTML=this.value">
+                            $2000
+                            <br>Currently: $<span id="budgetDisplay">500</span>
+                        </td>
+                        <td class="hint">Drag slider to set your monthly treatment budget.</td>
+                    </tr>
+
+                    <!-- SYMPTOMS -->
+                    <tr>
+                        <td>Describe Symptoms:</td>
+                        <td>
+                            <textarea id="symptoms" rows="3" cols="50" maxlength="500"
+                                placeholder="Describe your symptoms here (at least 5 characters)..."
+                                title="Please describe your symptoms in at least 5 characters"
+                                oninput="validateSymptoms()" onblur="validateSymptoms()"></textarea>
+                            <span class="errmsg" id="symptoms_text"></span>
+                        </td>
+                        <td class="hint">Optional but must be at least 5 characters if entered.</td>
+                    </tr>
+
+                    <!-- USER ID -->
+                    <tr>
+                        <td>User ID:</td>
+                        <td>
+                            <input type="text" id="userid"
+                                minlength="5" maxlength="20"
+                                pattern="[A-Za-z][A-Za-z0-9_\-]{4,19}"
+                                title="5-20 chars, must start with a letter, letters/numbers/dash/underscore only, no spaces"
+                                oninput="checkUserID(this)" onblur="checkUserID(this)">
+                            <span class="errmsg" id="userid_text"></span>
+                        </td>
+                        <td class="hint">5–20 chars. Start with a letter. No spaces or special characters.</td>
+                    </tr>
+
+                    <!-- PASSWORD -->
+                    <tr>
+                        <td>Password:</td>
+                        <td>
+                            <input type="password" id="pw1"
+                                minlength="8"
+                                title="At least 8 chars, must include uppercase, lowercase, and a number"
+                                oninput="checkPasswords()" onblur="checkPasswords()">
+                            <span class="errmsg" id="pw1_text"></span>
+                        </td>
+                        <td class="hint">Min 8 chars: at least 1 uppercase, 1 lowercase, 1 number.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Confirm Password:</td>
+                        <td>
+                            <input type="password" id="pw2"
+                                title="Must match the password above"
+                                oninput="checkPasswords()" onblur="checkPasswords()">
+                            <span class="errmsg" id="pw2_text"></span>
+                        </td>
+                        <td class="hint">Re-enter your password to confirm.</td>
+                    </tr>
+
+                    <!-- BUTTONS -->
+                    <tr>
+                        <td colspan="3" align="center">
+                            <input type="reset" value="CLEAR AND START OVER">
+                            <input type="button" id="reviewBtn" value="REVIEW DATA" onclick="reviewData()">
+                            <input type="button" value="VALIDATE" onclick="validateForm()">
+                            <input type="submit" id="submitBtn" value="SUBMIT" style="display:none;">
+                        </td>
+                    </tr>
+
+                </table>
+            </form>
+        </div>
+
+        <!-- REVIEW SECTION -->
+        <div id="reviewSection" style="display:none;">
+            <table class="reviewTable">
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody id="reviewBody"></tbody>
+            </table>
+        </div>
+      
+        <div id="iframeContainer">
+        <h3>Learn More About Our Treatments</h3>
+
+       <iframe 
+            src="https://www.webmd.com"
+            width="100%" 
+            height="400"
+            title="Medical Info">
+        </iframe>
+        </div>
+
+        <hr>
+
+        <div id="footer">
+            Sleeper's Snake Oils &amp; Miracle Cures | Houston, TX
+
+            <a href="https://redballmarketglobal.us/" target="_blank">
+                <button id="btn" type="button">Contact Us</button>
+            </a>
+
+            <script>
+                let x = 0, y = 0, dx = 1.5, dy = 1;
+                const btn = document.getElementById('btn');
+                const footer = document.getElementById('footer');
+
+                (function loop() {
+                    x += dx; y += dy;
+                    if (x <= 0 || x + btn.offsetWidth >= footer.offsetWidth) dx *= -1;
+                    if (y <= 0 || y + btn.offsetHeight >= footer.offsetHeight) dy *= -1;
+                    btn.style.left = x + 'px';
+                    btn.style.top = y + 'px';
+                    requestAnimationFrame(loop);
+                })();
+            </script>
+        </div>
+
+        <script src="assignment4.js"></script>
+        <script>
+            document.getElementById("today").innerHTML = new Date().toDateString();
+        </script>
+
+    </body>
+</html>
